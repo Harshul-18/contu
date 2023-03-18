@@ -12,5 +12,6 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+    url="https://github.com/Harshul-18/contu.git",
     python_requires='>=3.0',
 )
