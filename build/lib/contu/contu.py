@@ -35,7 +35,3 @@ def lemmatize_sentence(sentence):
     for word in sentence:
         edited_sentence.append(wnl.lemmatize(word, pos='v'))
     return " ".join(edited_sentence)
-
-print(lemmatize_sentence("He's playing with all of his friends."))
-
-# print(expand_contractions("I'm going to this party.", initial_case="uppercase"))
