@@ -1,3 +1,7 @@
+# Contu v0.1
+
+## Expanding contractions
+
 To use `expand_contractions` function to expand contractions,
 
 ```python
@@ -23,3 +27,24 @@ For example, the contraction "I'm" will be expanded to "I am" and "you're" will 
 
 
 The function `expand_contractions` first checks the initial case of the input sentence and sets the case of the output sentence accordingly. If the user passes the initial_case argument as 'lowercase' or 'uppercase', the function converts the dictionary of contractions to lowercase or uppercase, respectively, and then converts the input sentence to lowercase or uppercase, respectively.
+
+## Lemmatizing sentence
+
+```python
+>>> from contu.contu import lemmatize_sentence as ls
+>>> ls("I'm your player, playing as a programer a programming game like a gamer, but am playing a role of a coder while doing coding.")
+"I'm your player, play as a programer a program game like a gamer, but be play a role of a coder while do coding."
+>>> 
+```
+
+This function, named `lemmatize_sentence`, takes a single input parameter, sentence, which is a string of text. The function uses the Natural Language Toolkit (NLTK) library to perform lemmatization on the input sentence, which is the process of reducing words to their base or dictionary form, known as a lemma.
+
+The function first imports the necessary modules from the NLTK library, including the `WordNetLemmatizer` class, which is used for lemmatization. It also creates an instance of the `WordNetLemmatizer` class, which is stored in the variable `wnl`.
+
+Next, the function splits the input sentence into a list of individual words using the `split()` method. The resulting list of words is stored in the variable sentence.
+
+The function then creates an empty list named `edited_sentence`, which will be used to store the lemmatized version of the input sentence.
+
+The function then iterates over each word in the sentence list using a for loop. For each word, the function calls the `lemmatize()` method of the `WordNetLemmatizer` class, passing the word and the part of speech (POS) tag 'v' as arguments. The POS tag specifies that the word should be lemmatized as a verb, which is the default behavior of the `WordNetLemmatizer` class. The lemmatized version of the word is then appended to the `edited_sentence` list.
+
+Finally, the function joins the words in the edited_sentence list into a single string using the `join()` method, with spaces as the delimiter. The resulting string is then returned as the output of the function.

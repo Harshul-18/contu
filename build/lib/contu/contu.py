@@ -1,3 +1,8 @@
+import nltk
+nltk.download("wordnet")
+nltk.download("omw-1.4")
+nltk.download("punkt")
+
 def expand_contractions(sentence, initial_case='uppercase'):
     contractions = {"ain't": "am not", 
                 "aren't": "are not", 
@@ -20,5 +25,17 @@ def expand_contractions(sentence, initial_case='uppercase'):
             word = contractions[word]
         edited_sentence.append(word)
     return ' '.join(edited_sentence)
+
+def lemmatize_sentence(sentence):
+    import nltk
+    from nltk.stem import WordNetLemmatizer
+    wnl = WordNetLemmatizer()
+    sentence = sentence.split()
+    edited_sentence = []
+    for word in sentence:
+        edited_sentence.append(wnl.lemmatize(word, pos='v'))
+    return " ".join(edited_sentence)
+
+print(lemmatize_sentence("He's playing with all of his friends."))
 
 # print(expand_contractions("I'm going to this party.", initial_case="uppercase"))
